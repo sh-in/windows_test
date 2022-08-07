@@ -1,0 +1,235 @@
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to CSS</title>
+    <link rel="stylesheet" href = "my_stylesheet2.css">
+  </head>
+
+    <body>
+        <header>
+            <h2>
+            <i>In theory there is no difference between theory and practice.
+            In practice there is. Yogi Berra</i>
+            </h2>
+        </header> 
+
+        <nav>
+            <h2>Table of Contents</h2>
+            <ul><!--Unordered List-->
+              <li><a href="#purpose">Purpose</a></li>
+              <li><a href="#example">A Simple Example</a></li>
+              <li><a href="#Selectors">Selectors</a></li>
+              <li><a href="#Properties">Properties</a></li>
+              <li><a href="#Property Values">Property Values</a></li>
+              <li><a href="#Cascading">Cascading</a></li>
+            </ul>
+          </nav>
+
+        <h1>Introduction to CSS</h1>
+    
+
+        <p>This document gives an introduction to <abbr title = 'Cascading Style Sheets'>CSS</abbr> (Cascading Style Sheets),
+        including its purpose and structure, and some details about selectors,
+        properties, and property values.</p>
+
+        <section>
+            <h2 id="purpose">Purpose</h2>
+
+            <p><abbr title ="Cascading Style">CSS</abbr> is a <em title = "スタイルシート言語">stylesheet language</em>. A stylesheet is a collection of styles
+            for styling a document. Styling can range from high-level overall layout
+            of a document to precise details such as font size. CSS was developed
+            to work well for Web pages written in HTML. In theory, it is possible
+            to use other stylesheet languages for styling Web pages, <strong>but </strong>in practice,
+            CSS is the only choice.</p>
+
+            CSS can also be used for other XML documents.
+            Parts of CSS are also used in other technologies.
+            CSS properties are used in <abbr title="Scalable Vector Graphics">SVG</abbr> and <abbr title ="Extensible Stylesheet Language">
+            XSL</abbr>. CSS selectors are used in many
+            libraries to select parts of a document. So learning CSS is useful even
+            if you are <strong>not</strong> very interested in Web page design.
+        </section>
+
+        <aside> 
+            <h3>A Very Short History of CSS</h3>
+            <p>CSS was created by <a href = "https://en.wikipedia.org/wiki/H%C3%A5kon_Wium_Lie">Håkon Wium Lie</a> and <a href ="https://en.wikipedia.org/wiki/Bert_Bos">Bert Bos</a> 
+                at <abbr title = "World Wide Web Consortium">W3C</abbr>. There were originally
+                many different proposals for how styling should be handled, but eventually
+                CSS won. Today, the CSS specification is split into many modules that can
+                be on different levels.</p>
+
+            <p>
+                Separating style (CSS) and structure (HTML markup) of documents is
+                important for the following six reasons:
+                <h4>1. The same style can be used for more than one Web page,
+                or even a whole Web site.</h4>
+                <h4>2. Web page source is simpler and cleaner, thus easier to read or write.
+                is smaller.</h4>
+                <h4>4. Changing the styles on a Web page or a Web site is easier.
+                <h4>5. Work can easily be split between Web designers (CSS) and
+                authors/editors (HTML).</h4>
+                <h4>6. Different style sheets can be used for screen display, for print,
+                and for other cases.</h4>
+            </p>
+            
+            <p>CSS is <strong>not</strong> an exact style sheet language. Even with the same style sheet,
+            a Web page may look slightly different on different computers and with
+            different browsers. For example, <strong>not</strong> all computers have the
+            same fonts. CSS makes it easy to specify <strong>only part of the style</strong>,
+            leaving the rest to the browser.</p>
+        </aside>
+        
+        <section>
+            <h2 id = "example"> Simple Example</h2>
+
+            <p>This is a simple CSS stylesheet:</p>
+
+           <pre> 
+                body { font-size: 14pt; font-family: serif; line-height: 120%;
+                    background-color: lightgreen;
+                    }
+                h1 { font-size: 130%; font-weight: bold; }
+                h2 { font-size: 120%; margin-before: 0.5em; }
+                h3 { font-size: 110%; }
+                p  { text-indent: 1.5em; }
+                aside { float: right; width: 40%; font-size: 90%; }
+            </pre>
+
+                <p>This stylesheet has 6 style rules. The first rule says that the body
+                font size is 14 points, the font should have serifs, the line height
+                is 120% of the font size (i.e. there is a 20% interline space), and
+                the background color is light green.</p>
+            
+        </section>
+
+        <section>
+            <h2 id = "Basic Syntax">Basic Syntax</h2>
+
+        <p>The main elements of the CSS syntax are <em title = "セレクター">selectors</em>, <em title="プロパティ">properties</em>, and
+        <em title="特性値">property values</em>. A CSS stylesheet is a collection of rules.
+        Each rule consists of some selector(s) and a <em titel = "宣言ブロック">declaration block</em> in brackets.
+        A declaration block contains some declarations, separated or terminated
+        by semicolons. A declaration consists of a property name and a property
+        value.</p>
+
+        <p>In the above example, body and h1 are examples of selectors.
+        <code>{ font-size: 110%; }</code> is a declaration block.<code> background-color: #FCF</code> and
+        <code>margin-before: 0.5em</code> are declarations. <code>font-weight</code> and <code>float</code> are
+        property names. <code>14pt</code>, <code>bold</code>, and <code>90%</code> are property values.</p>
+
+        <p>Comments can be included in CSS. They start with <code>/*</code> and end with <code>*/</code>.
+        This is the same as in the programming language C. But CSS <strong>does not</strong>
+        support <code>//</code> comments the way most modern C compilers do.</p>
+
+        <p>Parsing of CSS is tolerant to unknown selectors, property names,
+        and property values. This makes it easy to introduce new properties.
+        When using a new property, stylesheet designers have to be <strong>careful</strong>
+        that the stylesheet still works well on browsers that <strong>do not</strong> support
+        the new property.</p>
+        </section>
+
+        <section>
+            <h2 id = "Selectors">Selectors</h2>
+
+            <p>Selectors define where the style in the following declaration block
+            is applied. The following table gives examples of the main types of
+            selectors and their meaning:</p>
+            <table>
+                <tbody>
+                <tr><th>selector</th>  <th>selector</th>            <th>applicability</th>
+                <th>example</th>   <th>type</th></tr>
+
+                <tr><td><code>*</code></td>         <td>universal</td> <td>selector</td>  <td>matches</td> <td>any element</td></tr>
+                <tr><td><code>body</code></td>      <td>element name</td>        <td>element</td> <td>content</td> <td>(and all its subelements)</td></tr>
+                <tr><td><code>.warning</code></td>  <td>class selector</td>      <td>elements with class='warning'</td><td></td><td></td></tr>
+                <tr><td><code>#syntax</code></td>   <td>id selector</td>         <td>element with id='syntax'</td><td></td><td></td></tr>
+                <tr><td><code>a:link</code></td>    <td>link pseudoclass</td>    <td>link that is not yet visited</td><td></td><td></td></tr>
+                <tr><td><code>a:visited</code></td> <td>link pseudoclass</td>    <td>link that was visited</td><td></td><td></td></tr>
+                <tr><td><code>p</code></td> <td>code</td>    <td>descendant</td>          <td>code element somewhere in p</td><td></td></tr>
+                <tr><th></th><th></th>       <th>combinator</th><th></th><th></th></tr>
+                <tr><td><code>p></code></td>  <td>code</td>  <td>child</td> <td>combinator</td>    <td>code element that is a child of p</td></tr>
+            </tbody>
+        </table>
+
+            <p>More selectors can be found in <a href="https://www.w3.org/TR/2018/CR-selectors-3-20180130/">Selectors Level 3</a>.</p>
+        
+
+        </section>
+
+        <section>
+            <h2 id = "Properties">Properties</h2>
+
+            <p>Properties indicate what kind of style setting should be done. There are
+            properties for <strong>margins</strong>, <strong>borders</strong>, <strong>fonts</strong>, <strong>colors</strong>, <strong>backgrounds</strong>, c<strong>olumns</strong>, <strong>grids</strong>,
+            <strong>scrolling</strong>, <strong>animation</strong>, <strong>relative</strong> and <strong>absolute positioning</strong>, and many more.
+            Properties often come in groups, for example font, font-family, font-size,
+            font-weight, and so on.</p>
+
+            Cascading Style Sheets, <a href="https://www.w3.org/TR/REC-CSS1/">level 1</a> started with about <strong>50</strong> properties. The
+            <a href="https://www.w3.org/TR/css-2021/">CSS Snapshot 2021</a> lists about <strong>300</strong> properties. You can use the
+            caniuse.com Web site to find out on which browsers and which versions
+            of a browser a property is supported.
+        </section>
+
+        <section>
+            <h2 id = "Property Values">Property Values</h2>
+
+        <p> Property values define the exact setting of a property. Many properties
+            have the same or similar property values, e.g. for colors and sizes.</p>
+
+            <p>There are two ways to indicate colors, by name and numerically.
+            Color names come from a long list defined in <a href="https://www.w3.org/TR/2018/REC-css-color-3-20180619/">CSS Color Module Level 3</a>.
+            Numerical color values can be of the form <code>#rgb</code> or <code>#rrggbb</code> or <code>rgb(r,g,b)</code>.
+            There are also notations for other color spaces such as RGBA and HSL.</p>
+
+            <p>Sizes can be absolute or relative. They are defined in
+            <a href="https://www.w3.org/TR/css-values-3/">CSS Values and Units Module Level 3</a>. Absolute sizes can be
+            units such as <strong>pt</strong> (point), <strong>cm</strong>, or <strong>mm</strong>. Relative sizes can be expressed
+            in <strong>percent (%)</strong> or <strong>em</strong> (the height of an uppercase M).</p>
+
+            <p> There are many other kinds of property values.
+            Please check which property values can be used with which property.</p>
+
+            <h2 id ="How to Apply CSS to HTML" >How to Apply CSS to HTML</h2>
+
+            <p>There are several different ways to apply CSS to <abbr title="Hypertext Markup Language">HTML</abbr>. The best way is
+            to have external style sheets and to link them to HTML with the
+            <strong>link element</strong> in the head element. The following is an example:</p>
+
+            <pre>&lt;link rel="stylesheet" type="text/css" href="my_stylesheet.css"&gt;</pre>
+
+            <p>A second way is to include some style rules in a style element in the
+            head element of an HTML document. A third way is to add some declarations
+            in a style attribute on a specific element. These ways are only suited
+            for specific local style settings, and are not recommended. But they take
+            priority over external stylesheet settings.</p>
+
+            <aside>
+                <h3> SCSS</h3>
+                <p>CSS does <strong>not</strong> allow to nest selectors and declaration blocks.
+                For large style sheets, such nesting can be convenient.
+                <em title="Source Code Control System">SCSS</em> is an extension of CSS to provide nesting and some other
+                additional features. Browsers do not understand it, so SCSS
+                has to be converted to CSS on the server side. Recently, a
+                CSS Nesting Module has been proposed, so this may change.</p>
+            </aside>
+        </section>
+
+        <h2 id="Cascading">Cascading</h2>
+
+        <p>We finally come to the explanation of the 'C' in CSS. CSS stylesheets
+        work by cascading. The same property can be set to different values
+        on the same text. Such settings can come from different style sheets,
+        style elements, and style attributes. They can come from outer elements
+        (such as the body element) or from inner elements. They can apply to an
+        element, a class, or an id. They can come from a shorthand property that
+        sets several related properties together or from a more specific property.
+        They can also come from an author stylesheet, a user stylesheet, or a
+        browser stylesheet.</p>
+
+        <p>All these settings are cascaded. Longer selectors win over shorter selectors.
+        Inner settings win over outer settings. Later settings (e.g. in the same
+        stylesheet) win over earlier settings. Understanding these precedences,
+        one can write short and precise stylesheets.</p>
+    </body>
+</html>
